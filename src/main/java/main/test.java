@@ -1,15 +1,14 @@
 package main;
 
-import module.smtp.father.AbstractSMTP;
-import module.smtp.AttachmentMail;
+import module.mailcheck.CheckGmail;
+import module.mailsend.NormalMail;
+import module.mailsend.PictureMail;
+import module.mailsend.father.AbstractSMTP;
 
 
 public class test {
 
     public static void main(String[] argc){
-        AbstractSMTP Mailman = new AttachmentMail();
-        Mailman.setFileName("/test.txt","test");
-        Mailman.send("zenmailman@gmail.com","zenmailman@gmail.com","zenmailman@gmail.com","zenthe1397");
     }
 }
 

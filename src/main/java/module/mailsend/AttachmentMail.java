@@ -1,8 +1,8 @@
-package module.smtp;
+package module.mailsend;
 
-import module.smtp.father.AbstractSMTP;
-import module.smtp.father.SMTP;
-import module.smtp.core.SmtpCore;
+import module.core.SmtpCore;
+import module.mailsend.father.AbstractSMTP;
+import module.mailsend.father.SMTP;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -16,11 +16,17 @@ import java.io.File;
 
 public class AttachmentMail extends AbstractSMTP implements SMTP {
 
-    private String fileName, attachName, subject = "default", body = "default";
+    private String fileName, attachName,
+            subject = "default",
+            body = "default";
 
     @Override
-    public void setFileName(String fileName, String attachName) {
+    public void setFileName(String fileName) {
         this.fileName = new File("").getAbsolutePath() + fileName;
+    }
+
+    @Override
+    public void setAttachName(String attachName) {
         this.attachName = attachName;
     }
 
@@ -55,7 +61,7 @@ public class AttachmentMail extends AbstractSMTP implements SMTP {
                 multipart.addBodyPart(messageBodyPart);
                 message.setContent(multipart);
                 Transport.send(message);
-                System.out.println("Sent attach mail successfully....");
+                System.out.println("Sent attach mail");
 
             } catch (MessagingException e) {
                 throw new RuntimeException(e);

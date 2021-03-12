@@ -1,8 +1,8 @@
-package module.smtp;
+package module.mailsend;
 
-import module.smtp.father.AbstractSMTP;
-import module.smtp.father.SMTP;
-import module.smtp.core.SmtpCore;
+import module.mailsend.father.AbstractSMTP;
+import module.mailsend.father.SMTP;
+import module.core.SmtpCore;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -10,7 +10,8 @@ import javax.mail.internet.MimeMessage;
 
 public class NormalMail extends AbstractSMTP implements SMTP {
 
-    private String subject = "default", body = "default";
+    private String subject = "default",
+            body = "default";
 
     @Override
     public void setBody(String body) {

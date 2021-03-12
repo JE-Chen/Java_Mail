@@ -1,4 +1,4 @@
-package module.smtp.father;
+package module.mailsend.father;
 
 public interface SMTP {
 
