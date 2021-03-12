@@ -1,1 +1,1 @@
-# JavaMailServer
+# JavaMail
