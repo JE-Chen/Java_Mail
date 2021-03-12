@@ -1,6 +1,6 @@
 package main;
 
-import module.smtp.AbstractSMTP;
+import module.smtp.father.AbstractSMTP;
 import module.smtp.AttachmentMail;
 
 

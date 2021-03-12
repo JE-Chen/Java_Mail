@@ -1,5 +1,9 @@
 package module.smtp;
 
+import module.smtp.father.AbstractSMTP;
+import module.smtp.father.SMTP;
+import module.smtp.core.SmtpCore;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;

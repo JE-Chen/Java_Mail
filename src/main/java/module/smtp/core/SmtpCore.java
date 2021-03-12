@@ -1,4 +1,4 @@
-package module.smtp;
+package module.smtp.core;
 
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
