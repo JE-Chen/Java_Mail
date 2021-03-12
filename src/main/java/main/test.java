@@ -1,14 +1,18 @@
 package main;
 
-import module.mailcheck.CheckGmail;
-import module.mailsend.NormalMail;
-import module.mailsend.PictureMail;
-import module.mailsend.father.AbstractSMTP;
 
+import org.json.JSONObject;
 
 public class test {
 
     public static void main(String[] argc){
+        try {
+            String tmp = "{\"Data\":\"Test\"}";
+            JSONObject jsonObject = new JSONObject(tmp);
+            System.out.println(jsonObject.get("Data"));
+        }catch(Exception e){
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 }
 
