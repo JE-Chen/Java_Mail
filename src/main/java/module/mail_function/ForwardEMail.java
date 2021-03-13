@@ -26,15 +26,13 @@ public class ForwardEMail {
             if (messages.length != 0) {
                 for (Message message : messages) {
                     String from = InternetAddress.toString(message.getFrom());
-                    String replyTo = InternetAddress.toString(message.getReplyTo());
                     String to = InternetAddress.toString(message.getRecipients(Message.RecipientType.TO));
-                    String subject = message.getSubject();
                     System.out.print("Do you want to reply [y/n] : ");
                     String ans = reader.readLine();
                     if ("Y".equals(ans) || "y".equals(ans)) {
                         Message forward = new MimeMessage(session);
                         forward.setRecipients(Message.RecipientType.TO, InternetAddress.parse(from));
-                        forward.setSubject("Fwd: " + message.getSubject());
+                        forward.setSubject( message.getSubject());
                         forward.setFrom(new InternetAddress(to));
                         MimeBodyPart messageBodyPart = new MimeBodyPart();
                         Multipart multipart = new MimeMultipart();

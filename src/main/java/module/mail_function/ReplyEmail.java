@@ -26,11 +26,7 @@ public class ReplyEmail {
             Message[] messages = folder.getMessages();
             if (messages.length != 0) {
                 for (Message message : messages) {
-                    String from = InternetAddress.toString(message.getFrom());
-                    String replyTo = InternetAddress.toString(message.getReplyTo());
                     String to = InternetAddress.toString(message.getRecipients(Message.RecipientType.TO));
-                    String subject = message.getSubject();
-                    Date sent = message.getSentDate();
                     System.out.print("Do you want to reply [y/n] : ");
                     String ans = reader.readLine();
                     if ("Y".equals(ans) || "y".equals(ans)) {
