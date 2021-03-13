@@ -1,8 +1,7 @@
 package main;
 
 
-import module.mailcheck.ReplyEmail;
-import module.mailforward.ForwardEMail;
+import module.mail_function.ForwardEMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
