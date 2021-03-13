@@ -4,9 +4,9 @@ import javax.mail.*;
 import java.io.IOException;
 import java.util.Properties;
 
-public class CheckGmail {
+public class CheckEmail {
 
-    public static void checkMail(String host, String username, String password) {
+    public void checkMail(String host, String username, String password) {
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");

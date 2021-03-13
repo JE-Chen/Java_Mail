@@ -9,9 +9,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Date;
 
-public class ForwardEMail {
+public class ForwardEmail {
 
     public void forwardMail(String username, String user_password) {
         Session session = POP3Core.getSession(username, user_password);

@@ -1,16 +1,18 @@
-package main;
+package module.mail_function;
 
 
-import module.mail_function.ForwardEmail;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-public class test {
+class CheckEmailTest {
 
-    public static void main(String[] argc) {
+    @Test
+    public void checkEmailTest() {
+        String host = "smtp.gmail.com";
         String email = "*****", password = "*****";
         String fileName = new File("").getAbsolutePath() + "/testData.json";
         StringBuilder data = new StringBuilder();
@@ -28,10 +30,8 @@ public class test {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        ForwardEmail forwardEMail = new ForwardEmail();
-        forwardEMail.forwardMail(email, password);
+        CheckEmail checkEmail = new CheckEmail();
+        checkEmail.checkMail(host, email, password);
     }
+
 }
-
-
-
