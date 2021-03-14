@@ -15,13 +15,9 @@ public class DeleteEmail {
         try {
             Store store = session.getStore("pop3s");
             store.connect(host, username, user_password);
-
-            // create the folder object and open it
             Folder emailFolder = store.getFolder("INBOX");
             emailFolder.open(Folder.READ_WRITE);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    System.in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             Message[] messages = emailFolder.getMessages();
             for (int i = 0; i < messages.length; i++) {
                 Message message = messages[i];

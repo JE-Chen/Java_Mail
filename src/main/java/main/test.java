@@ -1,6 +1,7 @@
 package main;
 
 
+import module.mail_function.DeleteEmail;
 import module.mail_function.ForwardEmail;
 import org.json.JSONObject;
 
@@ -28,8 +29,8 @@ public class test {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        ForwardEmail forwardEMail = new ForwardEmail();
-        forwardEMail.forwardMail(email, password);
+        DeleteEmail deleteEmail = new DeleteEmail();
+        deleteEmail.deleteEmail(email, password);
     }
 }
 
