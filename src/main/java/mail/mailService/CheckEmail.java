@@ -12,7 +12,7 @@ public class CheckEmail extends AbstractService {
         this.host = host;
     }
 
-    public void checkMail(String username, String password) {
+    public CheckEmail(String username, String password) {
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");

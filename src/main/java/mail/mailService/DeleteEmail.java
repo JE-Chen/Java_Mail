@@ -1,9 +1,9 @@
 package mail.mailService;
 
+import jakarta.mail.*;
 import mail.core.POP3Core;
 import mail.mailService.superclass.AbstractService;
 
-import jakarta.mail.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,11 +11,11 @@ import java.io.InputStreamReader;
 public class DeleteEmail extends AbstractService {
 
     @Override
-    public void setHost(String host){
+    public void setHost(String host) {
         this.host = host;
     }
 
-    public void deleteEmail(String username, String user_password) {
+    public DeleteEmail(String username, String user_password) {
         Session session = POP3Core.getSession(username, user_password);
         try {
             Store store = session.getStore("pop3s");
@@ -37,8 +37,6 @@ public class DeleteEmail extends AbstractService {
                     // set the DELETE flag to true
                     message.setFlag(Flags.Flag.DELETED, true);
                     System.out.println("Marked DELETE for message: " + subject);
-                } else if ("n".equals(ans)) {
-                    continue;
                 }
             }
             emailFolder.close(true);

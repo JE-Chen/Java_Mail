@@ -1,16 +1,16 @@
 package mail.mailService;
 
+import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import mail.core.POP3Core;
 import mail.mailService.superclass.AbstractService;
 
-import jakarta.mail.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ReplyEmail extends AbstractService {
 
-    public void reply(String username, String user_password) {
+    public ReplyEmail(String username, String user_password) {
         try {
             Session session = POP3Core.getSession(username, user_password);
             Store store = session.getStore("pop3s");
@@ -26,11 +26,14 @@ public class ReplyEmail extends AbstractService {
             if (messages.length != 0) {
                 for (Message message : messages) {
                     String to = InternetAddress.toString(message.getRecipients(Message.RecipientType.TO));
+                    System.out.println("---------------------------------");
+                    System.out.println("Subject: " + message.getSubject());
+                    System.out.println("From: " + message.getFrom()[0]);
                     System.out.print("Do you want to reply [y/n] : ");
                     String ans = reader.readLine();
                     if ("Y".equals(ans) || "y".equals(ans)) {
                         Message replyMessage;
-                        replyMessage =  message.reply(false);
+                        replyMessage = message.reply(false);
                         replyMessage.setFrom(new InternetAddress(to));
                         replyMessage.setText("Thanks");
                         replyMessage.setReplyTo(message.getReplyTo());
@@ -44,8 +47,6 @@ public class ReplyEmail extends AbstractService {
                         }
                         folder.close(false);
                         store.close();
-                    } else if ("n".equals(ans)) {
-                        break;
                     }
                 }
 

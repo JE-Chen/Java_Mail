@@ -1,5 +1,9 @@
 package main;
 
+import mail.mailService.CheckEmail;
+import mail.mailService.DeleteEmail;
+import mail.mailService.ForwardEmail;
+import mail.mailService.ReplyEmail;
 import mail.mailsend.NormalMail;
 import org.json.JSONObject;
 
@@ -27,8 +31,7 @@ public class test {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        NormalMail normalMail = new NormalMail(email, password);
-        normalMail.send("zenmailman@gmail.com", email);
+        ReplyEmail replyEmail = new ReplyEmail(email, password);
     }
 }
 
