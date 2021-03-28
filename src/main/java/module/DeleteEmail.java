@@ -1,4 +1,4 @@
-package module.mail_function;
+package module;
 
 import module.core.POP3Core;
 
@@ -33,7 +33,7 @@ public class DeleteEmail {
                     message.setFlag(Flags.Flag.DELETED, true);
                     System.out.println("Marked DELETE for message: " + subject);
                 } else if ("n".equals(ans)) {
-                    break;
+                    continue;
                 }
             }
             emailFolder.close(true);
