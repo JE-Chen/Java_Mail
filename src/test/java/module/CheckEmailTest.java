@@ -1,4 +1,4 @@
-package module.mail_function;
+package module;
 
 
 import org.json.JSONObject;

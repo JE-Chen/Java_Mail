@@ -1,4 +1,4 @@
-package module.mail_function;
+package module;
 
 import javax.mail.*;
 import java.io.IOException;
@@ -22,7 +22,6 @@ public class CheckEmail {
                 System.out.println("Subject: " + message.getSubject() + "\n");
                 System.out.println("From: " + message.getFrom()[0] + "\n");
                 System.out.println("Text: " + message.getContent().toString() + "\n");
-
             }
             emailFolder.close(false);
             store.close();

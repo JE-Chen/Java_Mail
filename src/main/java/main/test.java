@@ -1,8 +1,6 @@
 package main;
 
-
-import module.mail_function.DeleteEmail;
-import module.mail_function.ForwardEmail;
+import module.mailsend.NormalMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -29,8 +27,8 @@ public class test {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        DeleteEmail deleteEmail = new DeleteEmail();
-        deleteEmail.deleteEmail(email, password);
+        NormalMail normalMail = new NormalMail();
+        normalMail.send("zenmailman@gmail.com", email, email, password);
     }
 }
 
