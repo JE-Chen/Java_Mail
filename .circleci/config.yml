@@ -6,5 +6,4 @@ orbs:
 workflows:
   maven_test:
     jobs:
-      - maven/test:
-          test_results_path: /test/java
+      - maven/test # checkout, build, test, and upload test results
