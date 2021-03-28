@@ -1,4 +1,4 @@
-package checkMail;
+package mailService;
 
 
 import org.json.JSONObject;

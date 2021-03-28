@@ -1,6 +1,6 @@
 package main;
 
-import checkMail.mailsend.NormalMail;
+import mailService.mailsend.NormalMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -27,8 +27,8 @@ public class test {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        NormalMail normalMail = new NormalMail();
-        normalMail.send("zenmailman@gmail.com", email, email, password);
+        NormalMail normalMail = new NormalMail(email, password);
+        normalMail.send("zenmailman@gmail.com", email);
     }
 }
 
