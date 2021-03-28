@@ -1,3 +1,5 @@
+package normalMailTest;
+
 import mailService.mailsend.NormalMail;
 import mailService.mailsend.father.AbstractSMTP;
 import org.json.JSONObject;
