@@ -1,4 +1,4 @@
-package module;
+package checkMail;
 
 import javax.mail.*;
 import java.io.IOException;

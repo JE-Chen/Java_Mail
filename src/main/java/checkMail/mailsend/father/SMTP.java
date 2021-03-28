@@ -1,4 +1,4 @@
-package module.mailsend.father;
+package checkMail.mailsend.father;
 
 public interface SMTP {
 

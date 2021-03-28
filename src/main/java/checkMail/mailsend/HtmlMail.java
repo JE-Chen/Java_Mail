@@ -1,8 +1,8 @@
-package module.mailsend;
+package checkMail.mailsend;
 
-import module.core.SmtpCore;
-import module.mailsend.father.AbstractSMTP;
-import module.mailsend.father.SMTP;
+import checkMail.core.SmtpCore;
+import checkMail.mailsend.father.AbstractSMTP;
+import checkMail.mailsend.father.SMTP;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

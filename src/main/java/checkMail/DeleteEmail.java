@@ -1,6 +1,6 @@
-package module;
+package checkMail;
 
-import module.core.POP3Core;
+import checkMail.core.POP3Core;
 
 import javax.mail.*;
 import java.io.BufferedReader;

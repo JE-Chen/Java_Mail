@@ -1,6 +1,6 @@
 package main;
 
-import module.mailsend.NormalMail;
+import checkMail.mailsend.NormalMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

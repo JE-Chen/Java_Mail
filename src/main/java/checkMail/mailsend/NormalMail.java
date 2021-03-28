@@ -1,8 +1,8 @@
-package module.mailsend;
+package checkMail.mailsend;
 
-import module.mailsend.father.AbstractSMTP;
-import module.mailsend.father.SMTP;
-import module.core.SmtpCore;
+import checkMail.mailsend.father.AbstractSMTP;
+import checkMail.mailsend.father.SMTP;
+import checkMail.core.SmtpCore;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;

@@ -1,58 +1,61 @@
-package module;
+package checkMail;
 
-import module.core.POP3Core;
+import checkMail.core.POP3Core;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class ForwardEmail {
+public class ReplyEmail {
 
-    public void forwardMail(String username, String user_password) {
-        Session session = POP3Core.getSession(username, user_password);
+    public void reply(String username, String user_password) {
         try {
+            Session session = POP3Core.getSession(username, user_password);
             Store store = session.getStore("pop3s");
             store.connect("pop.gmail.com", username, user_password);
             Folder folder = store.getFolder("inbox");
+            if (!folder.exists()) {
+                System.out.println("inbox not found");
+                System.exit(0);
+            }
             folder.open(Folder.READ_ONLY);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    System.in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             Message[] messages = folder.getMessages();
             if (messages.length != 0) {
                 for (Message message : messages) {
-                    String from = InternetAddress.toString(message.getFrom());
                     String to = InternetAddress.toString(message.getRecipients(Message.RecipientType.TO));
                     System.out.print("Do you want to reply [y/n] : ");
                     String ans = reader.readLine();
                     if ("Y".equals(ans) || "y".equals(ans)) {
-                        Message forward = new MimeMessage(session);
-                        forward.setRecipients(Message.RecipientType.TO, InternetAddress.parse(from));
-                        forward.setSubject( message.getSubject());
-                        forward.setFrom(new InternetAddress(to));
-                        MimeBodyPart messageBodyPart = new MimeBodyPart();
-                        Multipart multipart = new MimeMultipart();
-                        messageBodyPart.setContent(message, "message/rfc822");
-                        multipart.addBodyPart(messageBodyPart);
-                        forward.setContent(multipart);
-                        forward.saveChanges();
+                        Message replyMessage;
+                        replyMessage =  message.reply(false);
+                        replyMessage.setFrom(new InternetAddress(to));
+                        replyMessage.setText("Thanks");
+                        replyMessage.setReplyTo(message.getReplyTo());
                         Transport t = session.getTransport("smtp");
                         try {
                             t.connect(username, user_password);
-                            t.sendMessage(forward, forward.getAllRecipients());
+                            t.sendMessage(replyMessage,
+                                    replyMessage.getAllRecipients());
                         } finally {
                             t.close();
                         }
                         folder.close(false);
                         store.close();
+                    } else if ("n".equals(ans)) {
+                        break;
                     }
                 }
+
+            } else {
+                System.out.println("There is no msg....");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
 }
