@@ -1,5 +1,4 @@
-package mailService.mailsend;
-
+import mailService.mailsend.NormalMail;
 import mailService.mailsend.father.AbstractSMTP;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
