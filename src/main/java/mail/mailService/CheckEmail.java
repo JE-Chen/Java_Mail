@@ -1,12 +1,18 @@
-package mailService;
+package mail.mailService;
 
-import javax.mail.*;
+import jakarta.mail.*;
+import mail.mailService.superclass.AbstractService;
 import java.io.IOException;
 import java.util.Properties;
 
-public class CheckEmail {
+public class CheckEmail extends AbstractService {
 
-    public void checkMail(String host, String username, String password) {
+    @Override
+    public void setHost(String host){
+        this.host = host;
+    }
+
+    public void checkMail(String username, String password) {
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");

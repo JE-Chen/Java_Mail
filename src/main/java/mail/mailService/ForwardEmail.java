@@ -1,16 +1,17 @@
-package mailService;
+package mail.mailService;
 
-import mailService.core.POP3Core;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+import mail.core.POP3Core;
+import mail.mailService.superclass.AbstractService;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import jakarta.mail.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class ForwardEmail {
+public class ForwardEmail extends AbstractService{
 
     public void forwardMail(String username, String user_password) {
         Session session = POP3Core.getSession(username, user_password);

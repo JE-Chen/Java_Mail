@@ -1,4 +1,4 @@
-package mailService.mailsend.father;
+package mail.mailsend.superclass;
 
 public interface SMTP {
 

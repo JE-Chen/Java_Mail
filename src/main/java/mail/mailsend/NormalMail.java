@@ -1,17 +1,17 @@
-package mailService.mailsend;
+package mail.mailsend;
 
-import mailService.core.SmtpCore;
-import mailService.mailsend.father.AbstractSMTP;
-import mailService.mailsend.father.SMTP;
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
+import jakarta.activation.FileDataSource;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+import mail.core.SmtpCore;
+import mail.mailsend.superclass.AbstractSMTP;
+import mail.mailsend.superclass.SMTP;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import jakarta.mail.*;
 import java.io.File;
 
 public class NormalMail extends AbstractSMTP implements SMTP {

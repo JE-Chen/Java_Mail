@@ -1,7 +1,5 @@
-package normalMailTest;
+package mail.mailService;
 
-import mail.mailsend.NormalMail;
-import mail.mailsend.superclass.AbstractSMTP;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,13 +8,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-class NormalMailTest {
+class CheckEmailTest {
 
     private static String email, password;
-    private AbstractSMTP mailer;
 
     @BeforeAll
-    static void init() {
+    static void init(){
         String fileName = new File("").getAbsolutePath() + "/testData.json";
         StringBuilder data = new StringBuilder();
         try {
@@ -36,32 +33,9 @@ class NormalMailTest {
     }
 
     @Test
-    void testTextMail() {
-        mailer = new NormalMail(email, password);
-        mailer.send("zenmailman@gmail.com", email);
+    void checkMail(){
+
     }
 
-    @Test
-    void testHtmlMail() {
-        mailer = new NormalMail(email, password);
-        mailer.setType("html");
-        mailer.send("zenmailman@gmail.com", email);
-    }
 
-    @Test
-    void testAttachMail() {
-        mailer = new NormalMail(email, password);
-        mailer.setType("attach");
-        mailer.setFileName("firefox.png");
-        mailer.setAttachName("test");
-        mailer.send("zenmailman@gmail.com", email);
-    }
-
-    @Test
-    void testPictureMail() {
-        mailer = new NormalMail(email, password);
-        mailer.setType("picture");
-        mailer.setFileName("firefox.png");
-        mailer.send("zenmailman@gmail.com", email);
-    }
 }

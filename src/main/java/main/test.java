@@ -1,6 +1,6 @@
 package main;
 
-import mailService.mailsend.NormalMail;
+import mail.mailsend.NormalMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

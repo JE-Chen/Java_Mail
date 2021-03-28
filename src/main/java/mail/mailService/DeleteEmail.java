@@ -1,16 +1,21 @@
-package mailService;
+package mail.mailService;
 
-import mailService.core.POP3Core;
+import mail.core.POP3Core;
+import mail.mailService.superclass.AbstractService;
 
-import javax.mail.*;
+import jakarta.mail.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class DeleteEmail {
+public class DeleteEmail extends AbstractService {
+
+    @Override
+    public void setHost(String host){
+        this.host = host;
+    }
 
     public void deleteEmail(String username, String user_password) {
-        String host = "smtp.gmail.com";
         Session session = POP3Core.getSession(username, user_password);
         try {
             Store store = session.getStore("pop3s");

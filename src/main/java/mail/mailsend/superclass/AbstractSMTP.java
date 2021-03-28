@@ -1,4 +1,4 @@
-package mailService.mailsend.father;
+package mail.mailsend.superclass;
 
 public abstract class AbstractSMTP {
 

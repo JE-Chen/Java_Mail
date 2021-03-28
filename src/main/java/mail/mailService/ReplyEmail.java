@@ -1,13 +1,14 @@
-package mailService;
+package mail.mailService;
 
-import mailService.core.POP3Core;
+import jakarta.mail.internet.InternetAddress;
+import mail.core.POP3Core;
+import mail.mailService.superclass.AbstractService;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
+import jakarta.mail.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class ReplyEmail {
+public class ReplyEmail extends AbstractService {
 
     public void reply(String username, String user_password) {
         try {
