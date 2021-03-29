@@ -43,12 +43,9 @@ public class ForwardEmail extends AbstractService {
                         multipart.addBodyPart(messageBodyPart);
                         forward.setContent(multipart);
                         forward.saveChanges();
-                        Transport t = session.getTransport("smtp");
-                        try {
+                        try (Transport t = session.getTransport("smtp")) {
                             t.connect(username, user_password);
                             t.sendMessage(forward, forward.getAllRecipients());
-                        } finally {
-                            t.close();
                         }
                         folder.close(false);
                         store.close();

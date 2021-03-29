@@ -1,10 +1,6 @@
 package main;
 
-import mail.mailService.CheckEmail;
-import mail.mailService.DeleteEmail;
-import mail.mailService.ForwardEmail;
 import mail.mailService.ReplyEmail;
-import mail.mailsend.NormalMail;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

@@ -3,6 +3,7 @@ package mail.mailsend;
 import jakarta.activation.DataHandler;
 import jakarta.activation.DataSource;
 import jakarta.activation.FileDataSource;
+import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeBodyPart;
 import jakarta.mail.internet.MimeMessage;
@@ -11,19 +12,17 @@ import mail.core.SmtpCore;
 import mail.mailsend.superclass.AbstractSMTP;
 import mail.mailsend.superclass.SMTP;
 
-import jakarta.mail.*;
 import java.io.File;
 
 public class NormalMail extends AbstractSMTP implements SMTP {
 
+    private final MimeMessage message;
     private String subject = "default",
             body = "default",
             type = "default",
             content = "<html>default</html>",
             fileName,
             attachName = "default";
-
-    private final MimeMessage message;
 
     public NormalMail(String username, String user_password) {
         Session session = SmtpCore.getSession(username, user_password);

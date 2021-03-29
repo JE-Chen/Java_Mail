@@ -1,10 +1,13 @@
 package mail.core;
 
-import jakarta.mail.*;
+import jakarta.mail.Authenticator;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+
 import java.util.Properties;
 
 public class SmtpCore {
-    public static Session getSession(String username, String user_password){
+    public static Session getSession(String username, String user_password) {
         String host = "smtp.gmail.com";
         Properties properties = System.getProperties();
         properties.put("mail.smtp.host", host);

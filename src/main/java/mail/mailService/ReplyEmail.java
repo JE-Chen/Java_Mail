@@ -37,23 +37,16 @@ public class ReplyEmail extends AbstractService {
                         replyMessage.setFrom(new InternetAddress(to));
                         replyMessage.setText("Thanks");
                         replyMessage.setReplyTo(message.getReplyTo());
-                        Transport t = session.getTransport("smtp");
-                        try {
+                        try (Transport t = session.getTransport("smtp")) {
                             t.connect(username, user_password);
                             t.sendMessage(replyMessage,
                                     replyMessage.getAllRecipients());
-                        } finally {
-                            t.close();
                         }
                         folder.close(false);
                         store.close();
                     }
                 }
-
-            } else {
-                System.out.println("There is no msg....");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

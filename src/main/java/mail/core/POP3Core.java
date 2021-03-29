@@ -1,9 +1,11 @@
 package mail.core;
+
 import jakarta.mail.Session;
+
 import java.util.Properties;
 
 public class POP3Core {
-    public static Session getSession(String username, String user_password){
+    public static Session getSession(String username, String user_password) {
         String host = "smtp.gmail.com";
         Properties properties = new Properties();
         properties.put("mail.store.protocol", "pop3");

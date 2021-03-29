@@ -2,15 +2,11 @@ package mail.mailService;
 
 import jakarta.mail.*;
 import mail.mailService.superclass.AbstractService;
+
 import java.io.IOException;
 import java.util.Properties;
 
 public class CheckEmail extends AbstractService {
-
-    @Override
-    public void setHost(String host){
-        this.host = host;
-    }
 
     public CheckEmail(String username, String password) {
         try {
@@ -35,6 +31,11 @@ public class CheckEmail extends AbstractService {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void setHost(String host) {
+        this.host = host;
     }
 
 }

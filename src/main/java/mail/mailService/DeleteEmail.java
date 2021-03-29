@@ -10,11 +10,6 @@ import java.io.InputStreamReader;
 
 public class DeleteEmail extends AbstractService {
 
-    @Override
-    public void setHost(String host) {
-        this.host = host;
-    }
-
     public DeleteEmail(String username, String user_password) {
         Session session = POP3Core.getSession(username, user_password);
         try {
@@ -44,6 +39,11 @@ public class DeleteEmail extends AbstractService {
         } catch (IOException | MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void setHost(String host) {
+        this.host = host;
     }
 
 }

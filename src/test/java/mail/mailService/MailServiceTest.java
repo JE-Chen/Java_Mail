@@ -8,12 +8,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-class CheckEmailTest {
+class MailServiceTest {
 
     private static String email, password;
 
     @BeforeAll
-    static void init(){
+    static void init() {
         String fileName = new File("").getAbsolutePath() + "/testData.json";
         StringBuilder data = new StringBuilder();
         try {
@@ -33,9 +33,23 @@ class CheckEmailTest {
     }
 
     @Test
-    void checkMail(){
+    void checkMail() {
 
     }
 
+    @Test
+    void deleteMail(){
+
+    }
+
+    @Test
+    void forwardMail(){
+
+    }
+
+    @Test
+    void replayMail(){
+        
+    }
 
 }
