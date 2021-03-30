@@ -2,7 +2,6 @@ package mail.mailService;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,26 +29,6 @@ class MailServiceTest {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-    }
-
-    @Test
-    void checkMail() {
-
-    }
-
-    @Test
-    void deleteMail(){
-
-    }
-
-    @Test
-    void forwardMail(){
-
-    }
-
-    @Test
-    void replayMail(){
-        
     }
 
 }

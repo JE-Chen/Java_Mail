@@ -10,12 +10,20 @@ import java.io.InputStreamReader;
 
 public class DeleteEmail extends AbstractService {
 
-    public DeleteEmail(String username, String user_password) {
-        Session session = POP3Core.getSession(username, user_password);
+    /**
+     * @param username Mail user's account
+     * @param password Mail user's password
+     */
+    public DeleteEmail(String username, String password) {
+        Session session = POP3Core.getSession();
         try {
+            // POP3S protocol
             Store store = session.getStore("pop3s");
-            store.connect(host, username, user_password);
+            // connect use mail user's account and password
+            store.connect(host, username, password);
+            // Get user's mail inbox
             Folder emailFolder = store.getFolder("INBOX");
+            // Right read and write
             emailFolder.open(Folder.READ_WRITE);
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             Message[] messages = emailFolder.getMessages();

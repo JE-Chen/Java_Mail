@@ -13,11 +13,15 @@ import java.io.InputStreamReader;
 
 public class ForwardEmail extends AbstractService {
 
-    public ForwardEmail(String username, String user_password) {
-        Session session = POP3Core.getSession(username, user_password);
+    /**
+     * @param username Mail user's account
+     * @param password Mail user's password
+     */
+    public ForwardEmail(String username, String password) {
+        Session session = POP3Core.getSession();
         try {
             Store store = session.getStore("pop3s");
-            store.connect("pop.gmail.com", username, user_password);
+            store.connect("pop.gmail.com", username, password);
             Folder folder = store.getFolder("inbox");
             folder.open(Folder.READ_ONLY);
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -44,7 +48,7 @@ public class ForwardEmail extends AbstractService {
                         forward.setContent(multipart);
                         forward.saveChanges();
                         try (Transport t = session.getTransport("smtp")) {
-                            t.connect(username, user_password);
+                            t.connect(username, password);
                             t.sendMessage(forward, forward.getAllRecipients());
                         }
                         folder.close(false);

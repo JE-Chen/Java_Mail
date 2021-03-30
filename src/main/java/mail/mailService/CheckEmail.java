@@ -8,15 +8,24 @@ import java.util.Properties;
 
 public class CheckEmail extends AbstractService {
 
+    /**
+     * @param username Mail user's account
+     * @param password Mail user's password
+     */
     public CheckEmail(String username, String password) {
         try {
             Properties props = new Properties();
             props.setProperty("mail.imap.ssl.enable", "true");
             Session session = Session.getInstance(props);
+            // IMAP protocol
             Store store = session.getStore("imap");
+            // connect use mail user's account and password
             store.connect(host, username, password);
+            // Get user's mail inbox
             Folder emailFolder = store.getFolder("INBOX");
+            // right -> read only
             emailFolder.open(Folder.READ_ONLY);
+            // all mail
             Message[] messages = emailFolder.getMessages();
             for (int i = 0, n = messages.length; i < n; i++) {
                 Message message = messages[i];

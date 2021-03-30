@@ -9,12 +9,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ReplyEmail extends AbstractService {
-
-    public ReplyEmail(String username, String user_password) {
+    /**
+     * @param username Mail user's account
+     * @param password Mail user's password
+     */
+    public ReplyEmail(String username, String password) {
         try {
-            Session session = POP3Core.getSession(username, user_password);
+            Session session = POP3Core.getSession();
             Store store = session.getStore("pop3s");
-            store.connect("pop.gmail.com", username, user_password);
+            store.connect("pop.gmail.com", username, password);
             Folder folder = store.getFolder("inbox");
             if (!folder.exists()) {
                 System.out.println("inbox not found");
@@ -38,7 +41,7 @@ public class ReplyEmail extends AbstractService {
                         replyMessage.setText("Thanks");
                         replyMessage.setReplyTo(message.getReplyTo());
                         try (Transport t = session.getTransport("smtp")) {
-                            t.connect(username, user_password);
+                            t.connect(username, password);
                             t.sendMessage(replyMessage,
                                     replyMessage.getAllRecipients());
                         }
