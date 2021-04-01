@@ -33,6 +33,10 @@ class NormalMailTest {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
+        if (email == null)
+            email = "jetestmailman@gmail.com";
+        if (password == null)
+            password = "jetestpassword";
     }
 
     @Test
